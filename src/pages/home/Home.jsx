@@ -7,6 +7,8 @@ const Home = () => {
     return (
         <div>
             <div className='mt-10 flex w-[100%] justify-center'>
+
+                {/* Main Center : Story & Posts */}
                 <div className='w-[44%] px-10'>
                     {/*  Story */}
                     <div className='storyDiv flex space-x-2 border p-4 rounded-md justify-start w-full'>
@@ -19,6 +21,7 @@ const Home = () => {
                     </div>
 
                 </div>
+                {/* Right Part */}
                 <div className='w-[30%]'>
                     <HomeRight />
                 </div>

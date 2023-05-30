@@ -6,6 +6,8 @@ import { RiSendPlaneLine } from 'react-icons/ri'
 import photo from '../../images/post.jpg'
 import postImg from '../../images/pp2.png'
 import './PostCard.css'
+import CommentModal from '../commentModal/CommentModal'
+import { useDisclosure } from '@chakra-ui/react'
 
 const PostCard = () => {
 
@@ -13,6 +15,7 @@ const PostCard = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [isPostLike, setIsPostLike] = useState(false);
     const [isBookmark, setIsBookmark] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     // Handling delete dropdown
     const handleDelete = () => {
@@ -29,8 +32,15 @@ const PostCard = () => {
         setIsBookmark(!isBookmark);
     }
 
+    // Handle Comment Modal
+    const handleOpenCommentModal = () => {
+        onOpen()
+    }
+
     return (
         <div>
+
+            {/* Post Card */}
             <div className='border rounded-md w-full'>
 
                 {/* PostCard Header */}
@@ -67,7 +77,7 @@ const PostCard = () => {
                     <div className='flex justify-center space-x-3'>
                         {isPostLike ? <AiFillHeart className='text-2xl hover:opacity-50 cursor-pointer text-red-600' onClick={handlePostLike} /> : <AiOutlineHeart className='text-2xl hover:opacity-50 cursor-pointer' onClick={handlePostLike} />}
 
-                        <FaRegComment className='text-xl hover:opacity-50 cursor-pointer' />
+                        <FaRegComment onClick={handleOpenCommentModal} className='text-xl hover:opacity-50 cursor-pointer' />
 
                         <RiSendPlaneLine className='text-xl hover:opacity-50 cursor-pointer' />
                     </div>
@@ -91,6 +101,9 @@ const PostCard = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Comment Modal */}
+            <CommentModal handlePostLike={handlePostLike} onClose={onClose} isOpen={isOpen} handleBookmark={handleBookmark} isPostLike={isPostLike} isBookmark={isBookmark} />
         </div>
     )
 }
