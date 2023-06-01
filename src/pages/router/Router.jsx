@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../home/Home'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Profile from '../profile/Profile'
+import Story from '../story/Story'
 
 const Router = () => {
     return (
@@ -15,6 +16,7 @@ const Router = () => {
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route path='/username' element={<Profile />} />
+                        <Route path='/story' element={<Story />} />
                     </Routes>
                 </div>
             </div>

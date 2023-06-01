@@ -23,7 +23,7 @@ const Home = () => {
                 </div>
 
                 {/* Right Part */}
-                <div className='w-[30%]'>
+                <div className='w-[25%]'>
                     <HomeRight />
                 </div>
             </div>
