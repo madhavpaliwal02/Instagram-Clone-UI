@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeRight from '../../components/homeRight/HomeRight'
+import CreatePostModal from '../../components/post/CreatePostModal'
 import PostCard from '../../components/post/PostCard'
 import StoryCircle from '../../components/story/StoryCircle'
 
@@ -21,11 +22,14 @@ const Home = () => {
                     </div>
 
                 </div>
+
                 {/* Right Part */}
                 <div className='w-[30%]'>
                     <HomeRight />
                 </div>
             </div>
+
+            <CreatePostModal /> 
         </div>
     )
 }
