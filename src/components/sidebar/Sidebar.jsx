@@ -3,6 +3,8 @@ import logo from "../../images/logoinsta.png";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { menu } from './SidebarConfig';
 import { useNavigate } from 'react-router-dom';
+import { useDisclosure } from '@chakra-ui/react';
+import CreatePostModal from '../post/CreatePostModal';
 
 const Sidebar = () => {
 
@@ -12,6 +14,9 @@ const Sidebar = () => {
     // Use Navigate
     const navigate = useNavigate();
 
+    // Use Disclosure
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     // Handling tab actions
     const handleTabClick = (title) => {
         setActiveTab(title);
@@ -20,6 +25,8 @@ const Sidebar = () => {
             navigate("/username")
         else if (title === "Home")
             navigate("/")
+        else if (title === "Create")
+            onOpen()
     }
 
     return (
@@ -55,6 +62,8 @@ const Sidebar = () => {
                     <IoReorderThreeOutline className='text-2xl' />
                     <p className='ml-5'>More</p>
                 </div>
+
+                <CreatePostModal isOpen={isOpen} onClose={onClose} />
             </div>
         </div>
     )

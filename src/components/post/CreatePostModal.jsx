@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Modal, ModalOverlay, ModalContent, ModalBody, Button } from "@chakra-ui/react"
 import { FaPhotoVideo } from 'react-icons/fa'
+import { GrEmoji } from 'react-icons/gr'
+import { GoLocation } from 'react-icons/go'
 import './CreatePostModal.css'
 import photo from '../../images/Pal.jpg'
 
@@ -52,7 +54,7 @@ const CreatePostModal = ({ onClose, isOpen }) => {
         <div>
             <div>
                 {/* Create Post Modal */}
-                <Modal size={'4xl'} onClose={onClose} isOpen={true} isCentered>
+                <Modal size={'4xl'} onClose={onClose} isOpen={isOpen} isCentered>
                     <ModalOverlay />
 
                     {/* Modal Content */}
@@ -68,7 +70,7 @@ const CreatePostModal = ({ onClose, isOpen }) => {
 
                         {/* Modal Body */}
                         <ModalBody>
-                            <div className='h-[70vh] justify-between pb-5 flex'>
+                            <div className='h-[70vh] justify-center pb-5 flex'>
                                 {/* Left : Drag & Drop Box */}
                                 <div className='w-[50%]'>
                                     {!file && <div
@@ -89,7 +91,7 @@ const CreatePostModal = ({ onClose, isOpen }) => {
                                 </div>
 
                                 {/*  */}
-                                <div className='w-[1px] border-2 h-full'></div>
+                                <div className='w-[1px] border h-full'></div>
 
                                 {/* Right : Top User Profile Details */}
                                 <div className='w-[50%]'>
@@ -100,8 +102,22 @@ const CreatePostModal = ({ onClose, isOpen }) => {
 
                                     {/* Post : Caption */}
                                     <div className='px-2'>
-                                        <textarea placeholder='Write a caption' className='captionInput' name="caption" rows="8" onChange={handleCaptionChange}></textarea>
+                                        <textarea placeholder='Write a caption' className='captionInput' name="caption" rows="6" onChange={handleCaptionChange}></textarea>
                                     </div>
+
+                                    {/* Caption Bottom emoji + word count */}
+                                    <div className='flex justify-between px-2'>
+                                        <GrEmoji />
+                                        <p className='opacity-70'>{caption?.length} /2,200</p>
+                                    </div>
+                                    <hr />
+
+                                    {/* Location */}
+                                    <div className='p-2 flex justify-between items-center'>
+                                        <input className='locationInput' type="text" name='location' placeholder='location' />
+                                        <GoLocation />
+                                    </div>
+                                    <hr />
                                 </div>
                             </div>
                         </ModalBody>

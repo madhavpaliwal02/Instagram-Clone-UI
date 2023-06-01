@@ -15,7 +15,7 @@
 }
 
 .custom-file-upload {
-    padding: .5rem 1rem;
+    padding: .3rem .8rem;
     color: white;
     font-weight: 600;
     background-color: #3897f0;
@@ -38,4 +38,10 @@
     outline: none;
     resize: none;
     font-size: small;
+}
+
+.locationInput {
+    border: none;
+    outline: none;
+    width: 90%;
 }
