@@ -5,11 +5,13 @@ import { menu } from './SidebarConfig';
 import { useNavigate } from 'react-router-dom';
 import { useDisclosure } from '@chakra-ui/react';
 import CreatePostModal from '../post/CreatePostModal';
+import SearchComponents from '../search/SearchComponents';
 
 const Sidebar = () => {
 
     // Use state
     const [activeTab, setActiveTab] = useState();
+    const [isSearchVisible, setIsSerachVisible] = useState(false);
 
     // Use Navigate
     const navigate = useNavigate();
@@ -27,20 +29,25 @@ const Sidebar = () => {
             navigate("/")
         else if (title === "Create")
             onOpen()
+        if (title === "Search")
+            setIsSerachVisible(true);
+        else
+            setIsSerachVisible(false);
+
     }
 
     return (
-        <div className='sticky top-0 h-[100vh]'>
-            <div className='flex flex-col justify-between h-full px-10'>
+        <div className='sticky top-0 h-[100vh] flex'>
+            <div className={`flex flex-col justify-between h-full px-10 ${isSearchVisible ? "px-2" : "px-10"}`} >
                 {/* Logo + Navigation */}
-                <div >
+                <div className={`${isSearchVisible ? "mt-10" : ""}`} >
                     {/* Logo */}
-                    <div className='pt-8'>
+                    {!isSearchVisible && <div className='pt-8'>
                         <img src={logo} alt='/' className='w-40' />
-                    </div>
+                    </div>}
 
                     {/* Sidebar Navigation */}
-                    <div className='mt-10'>
+                    <div className={`${isSearchVisible ? "mt-20" : "mt-7"}`} >
                         {
                             menu.map((item) =>
                                 <div
@@ -48,9 +55,9 @@ const Sidebar = () => {
                                     className='flex items-center mb-5 cursor-pointer text-lg'
                                 >
                                     {activeTab === item.title ? item.activeIcon : item.icon}
-                                    <p className={`${activeTab === item.title ? "font-bold" : "font-semibold"}`} >
+                                    {!isSearchVisible && <p className={`${activeTab === item.title ? "font-bold" : "font-semibold"}`}>
                                         {item.title}
-                                    </p>
+                                    </p>}
                                 </div>
                             )
                         }
@@ -60,11 +67,12 @@ const Sidebar = () => {
                 {/* More Options */}
                 <div className='flex items-center cursor-pointer pb-8'>
                     <IoReorderThreeOutline className='text-2xl' />
-                    <p className='ml-5'>More</p>
+                    {activeTab !== "Search" && <p className='ml-5'>More</p>}
                 </div>
 
-                <CreatePostModal isOpen={isOpen} onClose={onClose} />
             </div>
+            <CreatePostModal isOpen={isOpen} onClose={onClose} />
+            {isSearchVisible && <SearchComponents />}
         </div>
     )
 }

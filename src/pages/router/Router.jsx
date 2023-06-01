@@ -9,7 +9,7 @@ const Router = () => {
     return (
         <div>
             <div className='flex'>
-                <div className='w-[20%] border border-l-slate-500'>
+                <div className='w-[28%] border border-l-slate-500'>
                     <Sidebar />
                 </div>
                 <div className='w-full'>
