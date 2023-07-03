@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email address"),
-    password: Yup.string().min(8, "Password must be atleast 8 characters")
+    password: Yup.string().min(6, "Password must be atleast 8 characters")
 })
 
 const SignUp = () => {
@@ -33,11 +33,11 @@ const SignUp = () => {
                     >
                         {(formikProps) =>
                             <Form className='space-y-2'>
-                                {/* Email */}
-                                <Field name="email" >
-                                    {({ field, form }) => <FormControl isInvalid={form.errors.email && form.touched.email}>
-                                        <Input className='w-full' {...field} id="email" placeholder="Email or Mobile Number" required />
-                                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                                {/* Name */}
+                                <Field name="name" >
+                                    {({ field, form }) => <FormControl isInvalid={form.errors.name && form.touched.name}>
+                                        <Input className='w-full' {...field} id="name" placeholder="Full Name" required />
+                                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                                     </FormControl>}
                                 </Field>
                                 {/* Username */}
@@ -47,11 +47,11 @@ const SignUp = () => {
                                         <FormErrorMessage>{form.errors.username}</FormErrorMessage>
                                     </FormControl>}
                                 </Field>
-                                {/* Name */}
-                                <Field name="name" >
-                                    {({ field, form }) => <FormControl isInvalid={form.errors.name && form.touched.name}>
-                                        <Input className='w-full' {...field} id="email" placeholder="Full Name" required />
-                                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                                {/* Email */}
+                                <Field name="email" >
+                                    {({ field, form }) => <FormControl isInvalid={form.errors.email && form.touched.email}>
+                                        <Input className='w-full' {...field} id="email" placeholder="Email or Mobile Number" required />
+                                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                                     </FormControl>}
                                 </Field>
                                 {/* Password */}

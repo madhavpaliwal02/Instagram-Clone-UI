@@ -2,19 +2,25 @@ import React from 'react'
 import { Box, Button, FormControl, FormErrorMessage, Input } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
+import { useDispatch } from 'react-redux'
+import { signinAction } from '../../redux/auth/Action'
 
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email address"),
-    password: Yup.string().min(8, "Password must be atleast 8 characters")
+    password: Yup.string().min(6, "Password must be atleast 6 characters")
 })
 
 const SignIn = () => {
 
     const initialValues = { email: "", password: "" };
 
-    const handleSubmit = (values) => {
-        console.log("values: ", values);
+    const dispatch = useDispatch();
+
+    const handleSubmit = (values, actions) => {
+        console.log("values: ", values)
+        dispatch(signinAction(values))
+        actions.setSubmitting(false)
     }
 
 
@@ -31,26 +37,25 @@ const SignIn = () => {
                         onSubmit={handleSubmit}
                         validationSchema={validationSchema}
                     >
-                        {(formikProps) => 
-                        <Form className='space-y-6'>
-                            <Field name="email" >
-                                {({ field, form }) => <FormControl isInvalid={form.errors.email && form.touched.email}>
-                                    <Input className='w-full' {...field} id="email" placeholder="Email or Mobile Number" required />
-                                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                                </FormControl>}
-                            </Field>
-                            <Field name="password" >
-                                {({ field, form }) => <FormControl isInvalid={form.errors.password && form.touched.password}>
-                                    <Input className='w-full' {...field} id="password" placeholder="Password" required />
-                                    <FormErrorMessage>{form.errors.password}</FormErrorMessage>
-                                </FormControl>}
-                            </Field>
-
-                            <Button className='w-full' mt={4} colorScheme={'blue'} type={'submit'} isLoading={formikProps.isSubmitting} >
-                                Sign In
-                            </Button>
-                        </Form>}
-
+                        {(formikProps) =>
+                            <Form className='space-y-6'>
+                                <Field name="email" >
+                                    {({ field, form }) => <FormControl isInvalid={form.errors.email && form.touched.email}>
+                                        <Input className='w-full' {...field} id="email" placeholder="Email or Mobile Number" required />
+                                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                                    </FormControl>}
+                                </Field>
+                                <Field name="password" >
+                                    {({ field, form }) => <FormControl isInvalid={form.errors.password && form.touched.password}>
+                                        <Input className='w-full' {...field} id="password" type="password" placeholder="Password" required />
+                                        <FormErrorMessage>{form.errors.password}</FormErrorMessage>
+                                    </FormControl>}
+                                </Field>
+                                <Button className='w-full' mt={4} colorScheme={'blue'} type={'submit'} isLoading={formikProps.isSubmitting} >
+                                    Sign In
+                                </Button>
+                            </Form>
+                        }
                     </Formik>
                 </Box>
             </div>

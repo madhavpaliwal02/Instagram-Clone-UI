@@ -91,7 +91,7 @@ const LoginPage = () => {
                     </div>
 
                     {/* Footer logo */}
-                    <div className="flex flex-col justify-center items-center mt-4">
+                    {login ? <div className="flex flex-col justify-center items-center mt-4">
                         <div>
                             Get the app.
                         </div>
@@ -100,6 +100,7 @@ const LoginPage = () => {
                             <img className="w-[8rem]" src={playstore} alt="/" />
                         </div>
                     </div>
+                        : ""}
 
                 </div>
             </div>
