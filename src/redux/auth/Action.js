@@ -13,7 +13,7 @@ export const signinAction = (data) => async (dispatch) => {
                 Authorization: "Basic " + btoa(data.email + ":" + data.password),
             },
         });
-        console.log("Response Data:", res.json());
+        // console.log("Response Data:", res.json());
         console.log("Response status:", res.status);
         console.log("Response headers:", res.headers);
 
@@ -36,13 +36,14 @@ export const signinAction = (data) => async (dispatch) => {
 
 
 export const signupAction = (data) => async (dispatch) => {
-
+    console.log("Data: ", data)
     try {
         const res = await fetch("http://localhost:9100/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-            }
+            },
+            body: JSON.stringify(data),
         });
 
         const user = await res.json();

@@ -52,9 +52,9 @@ const PostCard = () => {
                         {/* Name & Location */}
                         <div className='pl-2'>
                             {/* Full Name */}
-                            <p className='font-semibold text-sm'>Palak Porwal</p>
+                            <p className='font-semibold text-sm'>Madhav Paliwal</p>
                             {/* Location */}
-                            <p className='font-thin text-sm'>Indore</p>
+                            <p className='font-thin text-sm'>Agar Malwa</p>
                         </div>
                     </div>
 

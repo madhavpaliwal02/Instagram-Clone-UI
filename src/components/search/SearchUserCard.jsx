@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from '../../images/Pal2.jpg'
+import photo from '../../images/pp2.png'
 
 const SearchUserCard = () => {
     return (
@@ -9,8 +9,8 @@ const SearchUserCard = () => {
                 <img className='h-10 w-10 rounded-full' src={photo} alt="" />
                 {/* </div> */}
                 <div className='flex flex-col text-left ml-3'>
-                    <p className=''>Palak Porwal</p>
-                    <p className='no-wrap opacity-60'>palakpaneer2504</p>
+                    <p className=''>Madhav Paliwal</p>
+                    <p className='no-wrap opacity-60'>madhavpaliwal02</p>
                 </div>
             </div>
         </div>

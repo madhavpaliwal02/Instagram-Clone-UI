@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from '../../images/Pal3.jpg'
+import photo from '../../images/pp2.png'
 import { useNavigate } from 'react-router-dom'
 
 const StoryCircle = () => {

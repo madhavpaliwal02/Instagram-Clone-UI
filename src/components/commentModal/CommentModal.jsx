@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, ModalOverlay, ModalContent, ModalBody } from '@chakra-ui/react'
 import photo from '../../images/pp2.png'
-import pp from '../../images/Pal.jpg'
+import pp from '../../images/pp1.png'
 import { BsBookmark, BsBookmarkFill, BsEmojiSmile, BsThreeDots } from 'react-icons/bs'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
@@ -35,7 +35,7 @@ const CommentModal = ({ handlePostLike, onClose, isOpen, handleBookmark, isPostL
                                             <img className='w-9 h-9 rounded-full' src={pp} alt="" />
                                         </div>
                                         <div className='ml-2'>
-                                            <p>Palak Porwal</p>
+                                            <p>Madhav Paliwal</p>
                                         </div>
                                     </div>
 

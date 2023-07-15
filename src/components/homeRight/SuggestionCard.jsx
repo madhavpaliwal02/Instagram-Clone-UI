@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from '../../images/Pal2.jpg'
+import photo from '../../images/pp1.png'
 
 const SuggestionCard = () => {
     return (

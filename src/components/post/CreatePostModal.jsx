@@ -4,7 +4,7 @@ import { FaPhotoVideo } from 'react-icons/fa'
 import { GrEmoji } from 'react-icons/gr'
 import { GoLocation } from 'react-icons/go'
 import './CreatePostModal.css'
-import photo from '../../images/Pal.jpg'
+import photo from '../../images/pp2.png'
 
 const CreatePostModal = ({ onClose, isOpen }) => {
 
@@ -97,7 +97,7 @@ const CreatePostModal = ({ onClose, isOpen }) => {
                                 <div className='w-[50%]'>
                                     <div className='flex items-center px-2'>
                                         <img className='w-7 h-7 rounded-full' src={photo} alt="" />
-                                        <p className='font-semibold ml-4'>Palak Porwal</p>
+                                        <p className='font-semibold ml-4'>Madhav Paliwal</p>
                                     </div>
 
                                     {/* Post : Caption */}

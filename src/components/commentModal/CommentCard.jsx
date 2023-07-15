@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
-import photo from '../../images/Pal.jpg'
+import photo from '../../images/pp3.jpeg'
 
 const CommentCard = () => {
 

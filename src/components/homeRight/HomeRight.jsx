@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from '../../images/Pal3.jpg'
+import photo from '../../images/pp4.jpeg'
 import SuggestionCard from './SuggestionCard'
 
 const HomeRight = () => {
@@ -16,8 +16,8 @@ const HomeRight = () => {
                         </div>
                         {/* Profile Details */}
                         <div className='ml-3 text-left'>
-                            <p>palakporwal2504</p>
-                            <p className='opacity-60'>Palak Porwal</p>
+                            <p>madhavpaliwal02</p>
+                            <p className='opacity-60'>Madhav Paliwal</p>
                         </div>
                     </div>
                     {/* Switch to another account */}

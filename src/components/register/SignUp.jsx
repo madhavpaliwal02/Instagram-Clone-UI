@@ -2,6 +2,9 @@ import React from 'react'
 import { Box, Button, FormControl, FormErrorMessage, Input } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signupAction } from '../../redux/auth/Action';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email address"),
@@ -12,8 +15,15 @@ const SignUp = () => {
 
     const initialValues = { email: "", username: "", name: "", password: "" };
 
-    const handleSubmit = (values) => {
+    const nav = useNavigate()
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (values, actions) => {
         console.log("values: ", values);
+        dispatch(signupAction(values));
+        actions.setSubmitting(false);
+        nav("/login")
     }
 
     return (
